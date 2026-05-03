@@ -1,10 +1,9 @@
 
-public class Manwha extends Obra {
+public class Manhwa extends Obra {
 
     private int capitulo;
 
-    public Manwha(String idObra, String titulo, Autor autor, Genero genero, String estado, double estrellas,
-            int capitulo) {
+    public Manhwa(String idObra, String titulo, Autor autor, Genero genero, String estado, double estrellas, int capitulo) {
         super(idObra, titulo, autor, genero, estado, estrellas);
         this.capitulo = capitulo;
     }
