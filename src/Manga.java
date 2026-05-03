@@ -1,4 +1,5 @@
 
+
 public class Manga extends Obra {
 
     private int volumen;

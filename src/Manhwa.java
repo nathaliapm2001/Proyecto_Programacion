@@ -1,4 +1,3 @@
-
 public class Manhwa extends Obra {
 
     private int capitulo;
