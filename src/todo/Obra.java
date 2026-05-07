@@ -1,7 +1,7 @@
 
 import java.util.Objects;
 
-public abstract  class Obra {
+public abstract class Obra {
 
     private String idObra;
     private String titulo;
@@ -9,8 +9,6 @@ public abstract  class Obra {
     private Genero genero;
     private String estado;
     private double estrellas;
-
-    
 
     public Obra(String idObra, String titulo, Autor autor, Genero genero, String estado, double estrellas) {
         this.idObra = idObra;
@@ -45,12 +43,6 @@ public abstract  class Obra {
 
     public double getEstrellas() {
         return estrellas;
-    }
-
-    @Override
-    public String toString() {
-        return "Obra [idObra=" + idObra + ", titulo=" + titulo + ", autor=" + autor + ", genero=" + genero + ", estado="
-                + estado + ", estrellas=" + estrellas + "]";
     }
 
     @Override

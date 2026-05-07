@@ -1,6 +1,6 @@
+import java.io.Serializable;
 
-
-public class Manga extends Obra {
+public class Manga extends Obra implements Serializable, Repositorio {
 
     private int volumen;
 
