@@ -1,5 +1,4 @@
 
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -19,11 +18,6 @@ public class SQLManga {
 
     }
 
-    /*
-     * public Manga(String idObra, String titulo, Autor autor, Genero genero, String
-     * estado, double estrellas,
-     * int volumen) {
-     */
     private void crearTabla() throws SQLException {
 
         String sql = """
@@ -35,9 +29,11 @@ public class SQLManga {
                     genero      TEXT,
                     estado      TEXT,
                     estrellas   DOUBLE,
+                    stock       INTEGER,
                     volumen     INTEGER
                 ); """;
 
+        // meter insert la lista de mangas
         Statement st = connection.createStatement();
         st.execute(sql);
 
@@ -51,7 +47,7 @@ public class SQLManga {
     public boolean insertarManga(Manga manga) throws SQLException {
         boolean result = false;
         String sql = """
-                INSERT INTO Manga (idObra, titulo, autor, genero, estado, estrellas) VALUES (?,?,?,?,?,?);
+                INSERT INTO Manga (idObra, titulo, autor, genero, estado, estrellas, stock, volumen) VALUES (?,?,?,?,?,?,?,?);
                 """;
 
         PreparedStatement pst = connection.prepareStatement(sql);
@@ -62,11 +58,14 @@ public class SQLManga {
         pst.setObject(4, manga.getGenero());
         pst.setString(5, manga.getEstado());
         pst.setDouble(6, manga.getEstrellas());
-        pst.setInt(7, manga.getVolumen());
+        pst.setInt(7, manga.getStock());
+        pst.setInt(8, manga.getVolumen());
+
+        pst.executeUpdate();
 
         pst.close();
         return result;
 
     }
-
+    // pegar aqui el select de manga
 }

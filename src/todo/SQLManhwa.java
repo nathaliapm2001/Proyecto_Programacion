@@ -1,5 +1,4 @@
 
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -18,14 +17,6 @@ public class SQLManhwa {
 
     }
 
-    /*
-      public Manwha(String idObra, String titulo, Autor autor, Genero genero, String estado, double estrellas,
-            int capitulo) {
-        super(idObra, titulo, autor, genero, estado, estrellas);
-        this.capitulo = capitulo;
-    }
-     */
-
     private void crearTabla() throws SQLException {
 
         String sql = """
@@ -37,8 +28,11 @@ public class SQLManhwa {
                     genero      TEXT,
                     estado      TEXT,
                     estrellas   DOUBLE,
+                    stock       INTEGER,
                     capitulo    INTEGER
                 ); """;
+
+        // meter la lista de manhwas en la base de datos
 
         Statement st = connection.createStatement();
         st.execute(sql);
@@ -53,7 +47,7 @@ public class SQLManhwa {
     public boolean insertarManga(Manhwa manhwa) throws SQLException {
         boolean result = false;
         String sql = """
-                INSERT INTO Manga (idObra, titulo, autor, genero, estado, estrellas, capitulos) VALUES (?,?,?,?,?,?,?);
+                INSERT INTO Manhwa (idObra, titulo, autor, genero, estado, estrellas, stock, capitulos) VALUES (?,?,?,?,?,?,?,?);
                 """;
 
         PreparedStatement pst = connection.prepareStatement(sql);
@@ -64,13 +58,14 @@ public class SQLManhwa {
         pst.setObject(4, manhwa.getGenero());
         pst.setString(5, manhwa.getEstado());
         pst.setDouble(6, manhwa.getEstrellas());
-        pst.setInt(7, manhwa.getCapitulo());
+        pst.setInt(7, manhwa.getStock());
+        pst.setInt(8, manhwa.getCapitulo());
+
+        pst.executeUpdate();
 
         pst.close();
         return result;
 
     }
-
-
-
+    // meter el select de manhwas
 }

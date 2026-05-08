@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class TiendaOtaku {
     static Scanner sc = new Scanner(System.in);
 
-    public static void main(String[] args) {
+    public static void main(String[] args) { // terminar menu
         String opcion;
 
         do {
@@ -50,7 +50,7 @@ public class TiendaOtaku {
                     break;
 
                 case "0":
-
+                    System.out.println("Finalizacion del dia");
                     break;
 
                 default:

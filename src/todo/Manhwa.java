@@ -1,20 +1,28 @@
-public class Manhwa extends Obra implements Repositorio {
+import java.io.Serializable;
+
+public class Manhwa extends Obra implements Serializable {
 
     private int capitulo;
 
-    public Manhwa(String idObra, String titulo, Autor autor, Genero genero, String estado, double estrellas,
+    public Manhwa(String idObra, String titulo, Autor autor, Genero genero, String estado, double estrellas, int stock,
             int capitulo) {
-        super(idObra, titulo, autor, genero, estado, estrellas);
+        super(idObra, titulo, autor, genero, estado, estrellas, stock);
         this.capitulo = capitulo;
-    }
-
-    @Override
-    public String mostrarDetalles() {
-        throw new UnsupportedOperationException("Not supported yet.");
     }
 
     public int getCapitulo() {
         return capitulo;
+    }
+
+    @Override
+    public String mostrarDetalles() {
+        return "Manhwa: " + super.getTitulo() + "\n" +
+                "Autor: " + super.getAutor().getNombre() + "\n" +
+                "Genero: " + super.getGenero().getNombre() + " " + super.getGenero().getDescripcion() + "\n" +
+                "Estado: " + super.getEstado() + "\n" +
+                "Estrellas: " + super.getEstrellas() + "\n" +
+                "Stock: " + super.getStock() + "\n" +
+                "Capitulo: " + getCapitulo();
     }
 
 }

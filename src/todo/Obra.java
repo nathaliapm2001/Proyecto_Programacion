@@ -9,14 +9,16 @@ public abstract class Obra {
     private Genero genero;
     private String estado;
     private double estrellas;
+    private int stock;
 
-    public Obra(String idObra, String titulo, Autor autor, Genero genero, String estado, double estrellas) {
+    public Obra(String idObra, String titulo, Autor autor, Genero genero, String estado, double estrellas, int stock) {
         this.idObra = idObra;
         this.titulo = titulo;
         this.autor = autor;
         this.genero = genero;
         this.estado = estado;
         this.estrellas = estrellas;
+        this.stock = stock;
     }
 
     public abstract String mostrarDetalles();
@@ -43,6 +45,10 @@ public abstract class Obra {
 
     public double getEstrellas() {
         return estrellas;
+    }
+
+    public int getStock() {
+        return stock;
     }
 
     @Override
